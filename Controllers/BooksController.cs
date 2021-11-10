@@ -63,7 +63,11 @@ namespace Books.Controllers
             {
                 _context.Add(book);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                ViewBag.Title = "Book Added";
+                ViewBag.Message = "Book adicionado com sucesso";
+
+                return View("Sucesso");
             }
             ViewData["AutorId"] = new SelectList(_context.Set<Autor>(), "AutorId", "Name", book.AutorId);
             return View(book);
