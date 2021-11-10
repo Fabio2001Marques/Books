@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Books.Models
 {
-    public class Autor
+    public class Book
     {
-        public int AutorId { get; set; }
+        public int BookId { get; set; }
 
         [Required]
-        [StringLength(256)]
-        public string Name { get; set; }
+        [StringLength(512)]
+        public string Title { get; set; }
+        public string Description { get; set; }
+
     }
 }
