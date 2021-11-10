@@ -120,7 +120,10 @@ namespace Books.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                ViewBag.Title = "Book Edit";
+                ViewBag.Message = "Book editado com sucesso";
+
+                return View("Sucesso");
             }
             ViewData["AutorId"] = new SelectList(_context.Set<Autor>(), "AutorId", "Name", book.AutorId);
             return View(book);
